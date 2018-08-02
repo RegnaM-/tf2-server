@@ -61,7 +61,6 @@ tv_name "$GOTV_NAME"
 sv_lan 0
 sv_cheats 0
 exec gotv.cfg
-
 SERVERCFG
 
 ./srcds_run \
