@@ -16,8 +16,8 @@ WORKDIR /steamcmd
 ADD https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz steamcmd_linux.tar.gz
 RUN tar -zxvf steamcmd_linux.tar.gz
 
-# Install CSGO
-RUN ./steamcmd.sh +login anonymous +force_install_dir /csgo +app_update 740 validate +quit
+# Install TF2
+RUN ./steamcmd.sh +login anonymous +force_install_dir /tf2 +app_update 232250 validate +quit
 
 # Contains wrapper scripts and .cfg files
 COPY containerfs /
@@ -26,6 +26,6 @@ COPY containerfs /
 RUN mkdir /root/.steam/sdk32
 RUN ln -s /steamcmd/linux32/steamclient.so /root/.steam/sdk32/steamclient.so
 
-WORKDIR /csgo
+WORKDIR /tf2
 
 CMD ["./start.sh"]
