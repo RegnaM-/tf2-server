@@ -57,10 +57,24 @@ cat << SERVERCFG > $CSGO_DIR/csgo/cfg/server.cfg
 hostname "$SERVER_HOSTNAME"
 rcon_password "$RCON_PASSWORD"
 sv_password "$SERVER_PASSWORD"
-tv_name "$GOTV_NAME"
+tv_name "GOTV_HOSTNAME"
 sv_lan 0
 sv_cheats 0
-exec gotv.cfg
+tv_advertise_watchable 1
+log on
+sv_logbans 1
+sv_logecho 1
+sv_logfile 1
+sv_log_onefile 0
+sv_hibernate_when_empty 1
+host_name_store 1
+host_info_show 1
+host_players_show 2
+exec banned_user.cfg
+exec banned_ip.cfg
+writeid
+writeip
+tv_enable "1"
 SERVERCFG
 
 ./srcds_run \
@@ -70,7 +84,6 @@ SERVERCFG
     -tickrate $TICKRATE \
     -port $PORT \
     +tv_port $GOTV_PORT \
-    -port $GOTV_NAME \
     -maxplayers_override $MAXPLAYERS \
     +game_type $GAME_TYPE \
     +game_mode $GAME_MODE \
