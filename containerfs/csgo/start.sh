@@ -31,7 +31,7 @@ then
     export MAPGROUP="${MAPGROUP:-$(get_metadata MAPGROUP)}"
     export MAXPLAYERS="${MAXPLAYERS:-$(get_metadata MAXPLAYERS)}"
 else
-    export SERVER_HOSTNAME="${SERVER_HOSTNAME:-An Amazing CSGO Server}"
+    export SERVER_HOSTNAME="${SERVER_HOSTNAME:-GOTV}"
     export SERVER_PASSWORD="${SERVER_PASSWORD:-changeme}"
     export RCON_PASSWORD="${RCON_PASSWORD:-changeme}"
     export GOTV_HOSTNAME="${GOTV_HOSTNAME:-GOTV NAME}"
@@ -90,4 +90,6 @@ SERVERCFG
     +mapgroup $MAPGROUP \
     +map $MAP \
     +ip $IP \
+    +tv_enable 1 \
     +sv_setsteamaccount $STEAM_ACCOUNT
+    
